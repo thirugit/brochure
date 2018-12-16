@@ -11,24 +11,28 @@
 </head>
 
 <body style="background:#e5e5e5;">
-<div class="flip-container first">
-    
-    <!-- <div class="flip-cards">
-        <div class="front-card">
-        </div>
-        <div class="reverse-card" id="card2">
-        </div>
-    </div> -->
-    
-</div>
+<a onclick="startAnimation()" href="#">
+	<div class="first stackup"></div>
+	<div class="second"></div>
+	<div class="third"></div>
+</a>
 <script>
-	$(document).ready(function(){
-		setTimeout(function(){
-			$('div').after('<div class="after"></div>')
-			$('.after').after('<div class="last"></div>')
-		},1000);
-		
-	});
+	var count=1;
+	function startAnimation(){
+		if(count%2===1){
+			$('.second').removeClass(' stackup')
+			setTimeout(function(){$('.first').addClass(' later').addClass('stackup')},1000);;
+			setTimeout(function(){$('.second').addClass(' later')},2000);;
+			count++;
+		}
+		else {
+			setTimeout(function(){$('.first').removeClass(' later').removeClass('stackup')},1000);;
+			setTimeout(function(){$('.second').removeClass(' later').addClass('stackup')},2000);;
+			count++;
+
+		}
+
+	}
 </script>
 </body>
 </html>

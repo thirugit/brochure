@@ -5,15 +5,23 @@ body{
 div {
 	display: inline-block;
     height: 200px;
-    position: relative;
+    position: absolute;
     width: 200px;
+    background-image:url('./1.png');
     background-size: contain;
+    left:200px;
 }
 div.first {
+	background-image:url('./1.png');
+
+z-index:1;
+}
+div.first.later {
 	animation: myfirst 1s;
     animation-direction: alternate;
     background-image: url(./2.png);
-        transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    left:0;
 }
 
 @keyframes myfirst {
@@ -30,15 +38,6 @@ div.first {
   	background-image: url(./1.png);
      left: 200px; top: 0px;
  }
- /*25% {
-  	background-image: url(./1.png);
-  }
-  50% {
-  	background-image: url(./2.png);
-  }
-  75% {
-  	background-image: url(./2.png);
-  }*/
   100% {
   	background-image: url(./2.png);
      left: 0; top: 0px;
@@ -46,15 +45,42 @@ div.first {
 }
 
 
+.third {
+	z-index:0;
+	background-image: url(./3.png);
+	left: 200px;
+    position: absolute;
+    transition: width 1s;
+    background-repeat: no-repeat;
+    transition-timing-function: cubic-bezier(0,1,1,1);
+    width:200px;
+    
+}
+.stackup{
+	z-index: 99999 !important;
+}
 
+/*@keyframes lastanim {
+0%   {
+  	width:0;
+ }
 
+100%   {
+  	width:200px;
+ }
+ }*/
 
-div.after {
+div.second {background-image:url('./5.jpg');
+left:200px;
+z-index:1;
+
+}
+div.second.later {
     height: 200px;
-    position: relative;
+    position: absolute;
     animation: mysecond 1s;
     width: 200px;
-    left:200px;
+    left:400px;
     background-size: contain;
     animation-direction: alternate;
     background-image: url(./4.png);
@@ -72,45 +98,14 @@ div.after {
             transform: rotateY(0);
   }
   0%   {
-  	background-image: url(./3.png);
-     left: 0px; top: 0px;
+  	background-image: url(./5.jpg);
+     left: 200px; top: 0px;
  }
- /*25% {
-  	background-image: url(./1.png);
-  }
-  50% {
-  	background-image: url(./2.png);
-  }
-  75% {
-  	background-image: url(./2.png);
-  }*/
   100% {
   	background-image: url(./4.png);
-     left: 200px; top: 0px;
+     left: 400px; top: 0px;
   }
 }
-.last {
-	background-image: url(./5.jpg);
-	left: 200px;
-    position: absolute;
-    animation: lastanim 1s;
-    opacity: 1;
-    
-}
-
-@keyframes lastanim {
-0%   {
-  	opacity: 0
- }
-  50%   {
-  	opacity: 0
- }
-
-100%   {
-  	opacity: 1
- }
-}
-
 
 
 
